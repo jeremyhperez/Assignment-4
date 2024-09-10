@@ -4,8 +4,8 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-
-// checking github push and commit
+import java.util.Arrays;
+import java.util.Comparator;
 
 public class StudentDateParser {
 
@@ -35,8 +35,15 @@ public class StudentDateParser {
 				} else {
 					System.out.println("Skipping invalid line: " + line);
 				}
-
 			}
+			br2.close();
+			Arrays.sort(users, new Comparator<User>() {
+
+				@Override
+				public int compare(User user1, User user2) {
+					return user1.getCourse().compareTo(user2.getCourse());
+				}
+			});
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

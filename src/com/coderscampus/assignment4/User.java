@@ -1,10 +1,10 @@
 package com.coderscampus.assignment4;
 
 public class User {
-	String id;
-	String name;
-	String course;
-	String grade;
+	private String id;
+	private String name;
+	private String course;
+	private String grade;
 
 	public User(String id, String name, String course, String grade) {
 		this.id = id;

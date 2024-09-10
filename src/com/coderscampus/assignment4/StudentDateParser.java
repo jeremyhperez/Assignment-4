@@ -16,7 +16,7 @@ public class StudentDateParser {
 		try {
 			BufferedReader br = new BufferedReader(new FileReader("student-master-list.csv"));
 			int linecount = 0;
-			br.readLine(); // Skip header
+			br.readLine();
 			while (br.readLine() != null) {
 				linecount++;
 			}
@@ -24,11 +24,10 @@ public class StudentDateParser {
 
 			User[] users = new User[linecount];
 			BufferedReader br2 = new BufferedReader(new FileReader("student-master-list.csv"));
-			br2.readLine(); // Skip header again
+			br2.readLine();
 			String line = null;
 			int index = 0;
 
-			// Fill users array
 			while ((line = br2.readLine()) != null) {
 				String[] userData = line.split(",");
 				if (userData.length == 4) {
@@ -42,17 +41,14 @@ public class StudentDateParser {
 			}
 			br2.close();
 
-			// Create 3 arrays for each course
 			User[] course1 = new User[linecount];
 			User[] course2 = new User[linecount];
 			User[] course3 = new User[linecount];
 
-			// Indexes to keep track of how many students are added to each course array
 			int course1Index = 0;
 			int course2Index = 0;
 			int course3Index = 0;
 
-			// Separate users by course
 			for (User user : users) {
 				if (user.getCourse().startsWith("APMTH")) {
 					course1[course1Index++] = user;
